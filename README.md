@@ -20,10 +20,10 @@ GITHUB CODE COLLABORATIVE PLATFORM
     - description
     - visibility
     - owner(user_id)
-    - collaborator(model)
+    - collaborators(user_id)
     - isActive
     - comments
-    - createdBy(user_id, timestamps)
+    - timestamps
 
     FILES:
     - file_id
