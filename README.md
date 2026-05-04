@@ -1,4 +1,25 @@
-GITHUB CODE COLLABORATIVE PLATFORM
+### GITHUB CODE COLLABORATIVE PLATFORM
+
+## Features:
+ - User authentication & profiles
+ - Create and manage repositories
+ - Upload / edit project files
+ - Commit history tracking
+ - Pull requests for proposing code changes
+ - Issue tracking system for bugs or feature requests
+ - Code review comments on specific lines
+ - Team collaboration & permissions (owner, collaborator, viewer)
+ - Real-time notifications for PR updates and comments
+ 
+ # Tech Stack:
+  - React 
+  - Node.js 
+  - Express.js 
+  - MongoDB 
+  - JWT Authentication
+  - Git API integration
+  - WebSockets / Socket.io
+  - Cloud storage (AWS S3 / Cloudinary)
 
 # ENTITY:
     USER, REPOSITORIES, PROJECT FILES, COMMENTS, NOTIFICATIONS, COLLABORATORS, COMMITS, PULL REQUESTS, ISSUES
