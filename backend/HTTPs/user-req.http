@@ -1,0 +1,6 @@
+### GET USER PROFILE
+GET http://localhost:3000/api/v1/users/profile
+
+
+### SEARCH USER
+GET http://localhost:3000/api/v1/users/s

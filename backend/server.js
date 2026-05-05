@@ -3,10 +3,17 @@ import exp from 'express'
 import {connect} from 'mongoose'
 
 import {config} from 'dotenv'
+import { authApp } from './APIs/authAPI.js'
 config()
 
 const app = exp()
 const port = process.env.PORT || 3000
+
+//==================== middleware =======================
+app.use(exp.json())
+
+app.use('/auth',authApp)
+//=======================================================
 
 //_____________________start server_______________________________
 app.listen(port,()=>console.log(`Server running on port ${port}`))
@@ -27,3 +34,22 @@ async function connectDB()
     }
 }
 connectDB()
+
+// error handling middleware   ----> at the end of the file
+// NOTE: error => {name,message,callstack}
+app.use((err,req,res,next)=>{
+    console.log(err.name)
+    //Validation error
+    if(err.name === 'ValidationError')
+    {
+        return res.status(400).json({message:"error occurred",error:err.name})
+    }
+    //CastError
+    if(err.name === 'CastError')
+    {
+        return res.status(400).json({message:"error occurred",error:err.name})
+    }
+
+    //Server side error
+    res.status(500).json({message:"Error occurred in server",error:err})
+})

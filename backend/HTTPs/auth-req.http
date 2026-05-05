@@ -1,0 +1,44 @@
+### USER REGISTER
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+    "name": "",
+    "email": "",
+    "password": "",
+    "user-profile":""
+}
+
+
+### USER LOGIN
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "",
+    "password": ""
+}
+
+
+### USER PROFILE
+GET http://localhost:8080/api/auth/profile
+
+
+### USER UPDATE 
+PUT http://localhost:8080/api/auth/profile
+Content-Type: application/json
+
+{
+    "name": "",
+    "email": "",
+    "password": "",
+    "user-profile":""
+}
+
+
+### USER DELETE
+DELETE http://localhost:8080/api/auth/profile
+
+
+### USER LOGOUT
+GET http://localhost:8080/api/auth/logout
