@@ -5,6 +5,7 @@ import {config} from 'dotenv'
 import { authApp } from './APIs/AuthAPI.js'
 import { repoApp } from './APIs/RepoAPI.js'
 import { fileApp } from './APIs/fileAPI.js'
+import { collabApp } from './APIs/CollabAPI.js'
 config()
 
 const app = exp()
@@ -17,6 +18,7 @@ app.use(cookieParser())
 app.use('/auth-api',authApp)
 app.use('/repo-api',repoApp)
 app.use('/file-api',fileApp)
+app.use('/collab-api',collabApp)
 //=======================================================
 
 //_____________________start server_______________________________

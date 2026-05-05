@@ -1,6 +1,6 @@
 import { RepositoryModel } from "../../models/RepositoryModel.js"
 
-export const updateRepositoryById = async (req, res) => {
+export const updateRepoByIdController = async (req, res) => {
     try {
         const rid = req.params.id
         const repository = await RepositoryModel.findById(rid)

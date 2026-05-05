@@ -1,0 +1,9 @@
+### Adding a new collaborator to a repository
+POST http://localhost:8080/collab-api/collaborator
+Content-Type: application/json
+
+{
+    "repoId": "69f9c29aa46522dbdfa9525c",
+    "userId": "69f98574c50d948a9dc13026",
+    "role": "collaborator"
+}

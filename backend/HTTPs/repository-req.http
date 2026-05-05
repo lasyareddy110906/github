@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
     "name": "repo1",
-    "description": "this is repo1"
+    "description": "this is repo1 created by user2"
 }
 
 ### getting all repositories
@@ -21,3 +21,6 @@ Content-Type: application/json
     "name": "repo1-updated",
     "description": "this is repo1-updated"
 }
+
+### Deleting repository by id
+DELETE http://localhost:8080/repo-api/repo/69f9ac92515cf53da815dd56

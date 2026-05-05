@@ -3,6 +3,9 @@ import { RepositoryModel } from "../../models/RepositoryModel.js"
 export const createRepoController = async (req, res) => {
     try {
         const newrepo = req.body
+        newrepo.owner = req.user?.id
+        console.log("creating repository with data", newrepo)
+
         const newrepodocument = new RepositoryModel(newrepo)
         const result = await newrepodocument.save()
         console.log("repository created successfully", result)

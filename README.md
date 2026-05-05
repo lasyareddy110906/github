@@ -60,7 +60,7 @@
     - text
     - parent_type
     - parent_id
-    - createdAt(timestamp)
+    - timestamp
 
     NOTIFICATIONS:
     - notification_id
