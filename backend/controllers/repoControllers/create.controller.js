@@ -1,6 +1,6 @@
 import { RepositoryModel } from "../../models/RepositoryModel.js"
 
-export const createRepository = async (req, res) => {
+export const createRepoController = async (req, res) => {
     try {
         const newrepo = req.body
         const newrepodocument = new RepositoryModel(newrepo)

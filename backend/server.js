@@ -2,8 +2,9 @@ import exp from 'express'
 import cookieParser from 'cookie-parser'
 import {connect} from 'mongoose'
 import {config} from 'dotenv'
-import { authApp } from './APIs/authAPI.js'
+import { authApp } from './APIs/AuthAPI.js'
 import { repoApp } from './APIs/RepoAPI.js'
+import { fileApp } from './APIs/fileAPI.js'
 config()
 
 const app = exp()
@@ -15,6 +16,7 @@ app.use(cookieParser())
 
 app.use('/auth-api',authApp)
 app.use('/repo-api',repoApp)
+app.use('/file-api',fileApp)
 //=======================================================
 
 //_____________________start server_______________________________

@@ -1,6 +1,6 @@
 import { RepositoryModel } from '../../models/RepositoryModel.js'
 
-export const getRepositoriesController = async (req, res) => {
+export const getReposController = async (req, res) => {
     try 
     {
         const repositories = await RepositoryModel.find()
