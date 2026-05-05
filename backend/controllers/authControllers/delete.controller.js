@@ -7,7 +7,7 @@ export const deleteController = async (req, res) => {
 
         //check if user isActive
         if (!user.isActive) {
-            return res.status(400).json({ messaage: 'user already deleted' });
+            return res.status(400).json({ message: 'user already deleted' });
         }
         //deactivate user
         user.isActive = false;

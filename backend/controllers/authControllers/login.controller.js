@@ -14,24 +14,25 @@ export const loginController = async (req,res)=>{
         // find user in db
         const currentUser=await userModel.findOne({ email:email })
 
-        // check if user is active
-        if(!currentUser.isActive)
-        {
-            res.status(400).json({message:"User profile is deactivated."})
-        }
-
         // check if user exists
         if(!currentUser)
         {
-            res.status(400).json({message:"Invalid user email"})
+            return res.status(400).json({message:"Invalid user email"})
         }
+
+        // check if user is active
+        if(!currentUser.isActive)
+        {
+            return res.status(400).json({message:"User profile is deactivated."})
+        }
+
         //check if passwords match
         const isMatched=await compare(password,currentUser.password)
 
         //Return message if passwords doesnt match
         if(!isMatched)
         {
-            res.status(400).json({message:"Invalid user password"})
+            return res.status(400).json({message:"Invalid user password"})
         }
         // generate token
         const token=sign({id:currentUser._id,email:currentUser.email},process.env.JWT_SECRET,{expiresIn:"1d"})

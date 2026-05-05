@@ -1,7 +1,6 @@
 import exp from 'express'
-
+import cookieParser from 'cookie-parser'
 import {connect} from 'mongoose'
-
 import {config} from 'dotenv'
 import { authApp } from './APIs/authAPI.js'
 config()
@@ -11,6 +10,7 @@ const port = process.env.PORT || 3000
 
 //==================== middleware =======================
 app.use(exp.json())
+app.use(cookieParser())
 
 app.use('/auth',authApp)
 //=======================================================

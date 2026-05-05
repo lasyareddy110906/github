@@ -1,7 +1,10 @@
 import exp from 'express';
+import { verifyToken } from '../middleware/verifyToken.js';
 import { registerController } from '../controllers/authControllers/register.controller.js';
 import { loginController } from '../controllers/authControllers/login.controller.js';
 import { deleteController } from '../controllers/authControllers/delete.controller.js';
+import { updateController } from '../controllers/authControllers/update.controller.js';
+import { logoutController } from '../controllers/authControllers/logout.controller.js';
 
 export const authApp = exp.Router()
 
@@ -9,16 +12,17 @@ export const authApp = exp.Router()
 authApp.post('/register',registerController)
 
 // route for login
-// authApp.post('/login',loginController)
+authApp.post('/login',loginController)
+
+// route for updating profile
+authApp.put('/profile',verifyToken,updateController)
 
 // route for logout
-// authApp.get('/logout',)
+ authApp.get('/logout',logoutController)
+
+// route for deleting account
+authApp.delete("/delete",deleteController) 
 
 // route for viewing profile
 // authApp.get('/profile',)
 
-// route for updating profile
-// authApp.put('/profile',)
-
-// route for deleting account
-// authApp.delete("/delete",deleteController) 

@@ -1,22 +1,30 @@
-import jwt from "jsonwebtoken";
-import {config} from "dotenv";
+import jwt from 'jsonwebtoken';
 const {verify} = jwt;
+
+import { config } from 'dotenv';
 config();
 
-export const verifyToken = (req, res, next) => {
-    try{
-        //get token from cookies
-    const token = req.cookies?.token;
-    //check if token exists
-    if (!token) {
-        return res.status(401).json({message: "Unauthorized"});
-    }
-    let decodedToken=verify(token, process.env.JWT_SECRET);
-    req.user = decodedToken;
-    next();
-}
-catch(err)
+// To access cookies properties of req object, we need cookie parser middleware.
+// Otherwise req.cookies is undefined
+export function verifyToken(req,res,next)
 {
-    return res.status(401).json({message: "Invalid token",error:err})
-}
+    // console.log("Token is ",req.cookies.token)
+    // token verification logic
+    const token = req.cookies?.token; //?.(optional chaining op) will return undefined
+    if(!token)
+    {
+        return res.status(401).json({message:"Unauthorised"})
+    }
+    try
+    {
+        // if token exists
+        const decodedToken = verify(token,process.env.JWT_SECRET)   // returns error if token invalid
+        console.log(decodedToken)
+        req.user = decodedToken 
+        next();
+    }
+    catch(err)
+    {
+        res.status(401).json({message:"Session expired, Login again"})
+    }
 }
