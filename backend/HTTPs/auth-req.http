@@ -1,12 +1,11 @@
 ### USER REGISTER
-POST http://localhost:8080/api/auth/register
+POST http://localhost:8080/auth/register
 Content-Type: application/json
 
 {
-    "name": "",
-    "email": "",
-    "password": "",
-    "user-profile":""
+    "name": "user1",
+    "email": "user1@example.com",
+    "password": "user1"
 }
 
 
@@ -32,7 +31,7 @@ Content-Type: application/json
     "name": "",
     "email": "",
     "password": "",
-    "user-profile":""
+    "userProfile":""
 }
 
 

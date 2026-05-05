@@ -20,8 +20,5 @@ authApp.post('/register',registerController)
 // route for updating profile
 // authApp.put('/profile',)
 
-// route for changing password
-// authApp.post("/password",)
-
 // route for deleting account
 // authApp.delete("/delete",deleteController) 

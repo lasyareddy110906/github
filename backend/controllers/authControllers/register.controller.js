@@ -16,10 +16,11 @@ export const registerController = async(req,res)=>{
         // save user
         await newUserDoc.save()
 
-        return res.staus(201).json({ message: "User Registration Successful"})
+        return res.status(201).json({ message: "User Registration Successful"})
     }
     catch(err)
     {
+        console.log(err)
         return res.status(500).json({message:"User Registration failed",error:err})
     }
 }
