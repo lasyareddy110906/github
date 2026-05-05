@@ -1,0 +1,11 @@
+### creating new repository
+POST http://localhost:8080/repo-api/repo
+Content-Type: application/json
+
+{
+    "name": "repo1",
+    "description": "this is repo1"
+}
+
+### getting all repositories
+GET http://localhost:8080/repo-api/repo

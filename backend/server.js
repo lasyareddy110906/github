@@ -3,6 +3,7 @@ import cookieParser from 'cookie-parser'
 import {connect} from 'mongoose'
 import {config} from 'dotenv'
 import { authApp } from './APIs/authAPI.js'
+import { repoApp } from './APIs/RepoAPI.js'
 config()
 
 const app = exp()
@@ -12,7 +13,8 @@ const port = process.env.PORT || 3000
 app.use(exp.json())
 app.use(cookieParser())
 
-app.use('/auth',authApp)
+app.use('/auth-api',authApp)
+app.use('/repo-api',repoApp)
 //=======================================================
 
 //_____________________start server_______________________________
