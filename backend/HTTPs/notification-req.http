@@ -1,0 +1,10 @@
+### GET NOTIFICATIONS
+GET http://localhost:4000/api/v1/notifications
+
+
+### MARK NOTIFICATION AS READ
+POST http://localhost:4000/api/v1/notifications/mark-read
+
+
+### DELETE NOTIFICATION
+DELETE http://localhost:4000/api/v1/notifications/your-notification-id-here

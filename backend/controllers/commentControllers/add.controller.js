@@ -1,0 +1,19 @@
+import {CommentModel} from "../../models/CommentModel.js"
+
+export const addComment=async (req,res)=>{
+    try{
+        const {fileId, content}=req.body
+        const uid=req.user?.id || req.user?._id
+        if(!content){
+            return res.status(400).json({message:"comment content is required"})
+        }
+        const newComment=new CommentModel({content,user:uid,file:fileId })
+
+        await newComment.save()
+        res.status(201).json({message:"comment added successfully",payload:newComment})
+    }
+    catch(err){
+        console.log("error in adding comment",err)
+        res.status(500).json({message:"error in adding comment"})
+    }
+}

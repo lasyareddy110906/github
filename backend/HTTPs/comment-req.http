@@ -1,0 +1,8 @@
+### add comment
+POST http://localhost:4000/comment-api/add-comment
+Content-Type: application/json
+
+{
+    "fileId": "some-file-id",
+    "content": "This is a comment"
+}

@@ -1,17 +1,25 @@
 import exp from 'express'
 import cookieParser from 'cookie-parser'
+import cors from 'cors'
 import {connect} from 'mongoose'
 import {config} from 'dotenv'
 import { authApp } from './APIs/AuthAPI.js'
 import { repoApp } from './APIs/RepoAPI.js'
 import { fileApp } from './APIs/fileAPI.js'
 import { collabApp } from './APIs/CollabAPI.js'
+import { userApp } from './APIs/UserAPI.js'
+import { notificationApp } from './APIs/notificationAPI.js'
+import {commentApp} from './APIs/CommentAPI.js'
 config()
 
 const app = exp()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8080
 
 //==================== middleware =======================
+app.use(cors({
+    origin: ['http://localhost:3000', 'http://localhost:5173', 'http://localhost:5174'],
+    credentials: true
+}))
 app.use(exp.json())
 app.use(cookieParser())
 
@@ -19,6 +27,10 @@ app.use('/auth-api',authApp)
 app.use('/repo-api',repoApp)
 app.use('/file-api',fileApp)
 app.use('/collab-api',collabApp)
+app.use('/user-api',userApp)
+app.use('/api', userApp)
+app.use('/api/v1', notificationApp)
+app.use('/comment-api', commentApp)
 //=======================================================
 
 //_____________________start server_______________________________
