@@ -1,0 +1,48 @@
+#### create an issue
+POST http://localhost:4000/issues-api/issue
+Content-Type: application/json
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmFjZDdhMTFlZTM1NTQwMDY4Y2I0MSIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJpYXQiOjE3NzgyMTU0NTgsImV4cCI6MTc3ODMwMTg1OH0.bKnGCOm5F3QdNK2C1ClgdnKXLO65K2FI9qpfCrjyGAo; Path=/; HttpOnly; SameSite=Lax
+
+{
+    "title": "Issue Title",
+    "description": "Issue Description",
+    "repo_id": "69facdf511ee35540068cb45",
+    "status": "open",
+    "assignees": ["69face3911ee35540068cb46"],
+    "created_by": "69facd7a11ee35540068cb41"
+
+}
+
+
+### Get all issues for a repository
+GET http://localhost:4000/issues-api/issues?repo_id=69facdf511ee35540068cb45
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmFjZDdhMTFlZTM1NTQwMDY4Y2I0MSIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJpYXQiOjE3NzgyMTU0NTgsImV4cCI6MTc3ODMwMTg1OH0.bKnGCOm5F3QdNK2C1ClgdnKXLO65K2FI9qpfCrjyGAo; Path=/; HttpOnly; SameSite=Lax
+
+
+### Get issue by ID
+GET http://localhost:4000/issues-api/issue?repo_id=69facdf511ee35540068cb45&issue_id=69fd6a806a61b5b7c1844e45
+
+
+### Update an issue
+PUT http://localhost:4000/issues-api/issue/69fd6a806a61b5b7c1844e45
+Content-Type: application/json
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmFjZDdhMTFlZTM1NTQwMDY4Y2I0MSIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJpYXQiOjE3NzgyMTU0NTgsImV4cCI6MTc3ODMwMTg1OH0.bKnGCOm5F3QdNK2C1ClgdnKXLO65K2FI9qpfCrjyGAo; Path=/; HttpOnly; SameSite=Lax
+
+{
+    "title": "Updated Issue Title",
+    "description": "Updated Issue Description",
+    "status": "open",
+    "assignees": ["69face3911ee35540068cb46"],
+    "created_by": "69facd7a11ee35540068cb41"
+
+}
+
+
+#### close an issue
+PUT http://localhost:4000/issues-api/issue/69fd6a806a61b5b7c1844e45/close
+Content-Type: application/json
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmFjZDdhMTFlZTM1NTQwMDY4Y2I0MSIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJpYXQiOjE3NzgyMTU0NTgsImV4cCI6MTc3ODMwMTg1OH0.bKnGCOm5F3QdNK2C1ClgdnKXLO65K2FI9qpfCrjyGAo; Path=/; HttpOnly; SameSite=Lax
+
+### Delete an issue
+DELETE http://localhost:4000/issues-api/issue/69fd70235384559f79f219ee
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmFjZDdhMTFlZTM1NTQwMDY4Y2I0MSIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJpYXQiOjE3NzgyMTU0NTgsImV4cCI6MTc3ODMwMTg1OH0.bKnGCOm5F3QdNK2C1ClgdnKXLO65K2FI9qpfCrjyGAo; Path=/; HttpOnly; SameSite=Lax

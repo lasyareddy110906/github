@@ -10,6 +10,7 @@ import { collabApp } from './APIs/CollabAPI.js'
 import { userApp } from './APIs/UserAPI.js'
 import { notificationApp } from './APIs/notificationAPI.js'
 import {commentApp} from './APIs/CommentAPI.js'
+import { issuesApp } from './APIs/issuesAPI.js'
 config()
 
 const app = exp()
@@ -31,6 +32,7 @@ app.use('/user-api',userApp)
 app.use('/api', userApp)
 app.use('/api/v1', notificationApp)
 app.use('/comment-api', commentApp)
+app.use('/issues-api', issuesApp)
 //=======================================================
 
 //_____________________start server_______________________________
